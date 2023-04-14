@@ -21,10 +21,12 @@ export const Banner = () => {
     return () => {
       clearInterval(ticker);
     };
-  }, [text]);
-  function handleClick() {
+  }, [text, delta]);
+
+  const handleClick = () => {
     window.location.href = "https://www.linkedin.com/in/lephuongtrung/";
-  }
+  };
+
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
@@ -45,7 +47,6 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setDelta(500);
-    } else {
     }
   };
 
@@ -66,8 +67,8 @@ export const Banner = () => {
                     {`Hi! I'm Phuong Trung`}{" "}
                     <span
                       className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Nodejs Developer", "React Developer", "Fullstack Developer" ]'
+                      data-period="1000"
+                      data-rotate='["Nodejs Developer", "React Developer", "Fullstack Developer"]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
